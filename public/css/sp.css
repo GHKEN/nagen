@@ -1,0 +1,44 @@
+.content {
+    flex-direction: column;
+    width: 90vw;
+    margin: auto;
+}
+
+.wordlist, .result {
+    box-sizing: border-box;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+.wordlist li {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    margin: 5px 0 5px 0;
+}
+
+.wordlist li input {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.generate-button {
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+.generate-button button {
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.generate-button button:hover {
+    background-color: gray;
+}
+
+.result li {
+    margin: 5px 0 5px 0;
+}
