@@ -28,23 +28,27 @@ class App extends React.Component<{}, State>
     }
     private addWord(word: string)
     {
+        if (word == '') return alert('no characters');
         const newWords = this.state.words.concat(word);
         this.setState({newWord: '', words: newWords});
     }
     private generate()
     {
+        if (this.state.words.length == 0) return alert('no words');
         const options = new GeneratorOptions();
         const results = Generator.generate(this.state.words, options);
         this.setState({results: results});
     }
     render()
     {
-        const words = this.state.words.map((word, key) => (
+        const words = this.state.words.length != 0 ? this.state.words.map((word, key) => (
             <li key={key}>
                 <input type='text' value={word} onChange={e => this.changeWord(key, e.target.value)}/>
                 <button onClick={e => this.removeWord(key)}>delete</button>
             </li>
-        ));
+        )) : (
+            <li>no words</li>
+        );
         const results = this.state.results.map((v, k) => (
             <li key={k}>{v}</li>
         ));
